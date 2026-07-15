@@ -18,7 +18,6 @@ class VersaAtendeTenantFactory extends Factory
             'tenant_id'     => Str::random(10),
             'tenant_slug'   => Str::slug($this->faker->unique()->city()),
             'tenant_token'  => Str::random(40),
-            'auth_token'    => Str::random(40),
             'is_active'     => $this->faker->boolean(),
         ];
     }

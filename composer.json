@@ -7,13 +7,12 @@
     "illuminate/support": "^9.0|^10.0|^11.0",
     "illuminate/http": "^9.0|^10.0|^11.0",
     "illuminate/database": "^9.0|^10.0|^11.0",
-    "guzzlehttp/guzzle": "^7.14"
+    "guzzlehttp/guzzle": "^7.0"
   },
   "autoload": {
     "psr-4": {
       "Versa\\VersaAtende\\": "src/",
-      "Versa\\VersaAtende\\Database\\Factories\\": "database/factories/",
-      "Versa\\VersaAtende\\Tests\\": "tests/"
+      "Versa\\VersaAtende\\Database\\Factories\\": "database/factories/"
     }
   },
   "autoload-dev": {
