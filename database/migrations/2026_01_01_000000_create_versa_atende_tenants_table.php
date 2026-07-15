@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('tenant_id')->nullable();
             $table->string('tenant_slug')->nullable();
             $table->string('tenant_token')->nullable();
-            $table->string('auth_token')->nullable();
-            $table->boolean('ativado')->default(true);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

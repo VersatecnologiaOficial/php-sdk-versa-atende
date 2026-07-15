@@ -24,12 +24,12 @@ class VersaAtendeServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/versa-atende.php' => config_path('versa-atende.php'),
             ], 'versa-atende-config');
-
-            $this->registerMigrations();
         }
     }
 
