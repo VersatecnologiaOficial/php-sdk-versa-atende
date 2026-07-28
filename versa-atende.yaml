@@ -1,0 +1,653 @@
+type: spec.insomnia.rest/5.0
+schema_version: "5.1"
+name: Painel de Chamadas API 1.1.0
+meta:
+  id: wrk_1836841d40644e999b486308263bb2d1
+  created: 1765280790219
+  modified: 1765280790219
+  description: ""
+collection:
+  - url: "{{ _.base_url }}/admin/tenants"
+    name: Listar Tenants
+    meta:
+      id: req_0fb011be85394ee985ba760dffd9a2df
+      created: 1765280812424
+      modified: 1765280812424
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812424
+    method: GET
+    authentication:
+      type: apikey
+      key: x-admin-key
+      value: "{{ _.xAdminKey }}"
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/admin/tenants"
+    name: Criar Tenant
+    meta:
+      id: req_74c1da77732646c5b20d4d248bfce911
+      created: 1765280812424
+      modified: 1770754550751
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812424
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Cidesleste",
+          "slug": "cidesleste",
+          "webhookUrl": "http://site.com.br/webhook"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        disabled: false
+    authentication:
+      type: apikey
+      key: x-admin-key
+      value: "{{ _.xAdminKey }}"
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/admin/tenants/cmligpxr30019sf0urzte7d3d/rotate-key"
+    name: Rotacionar Chave do Tenant
+    meta:
+      id: req_43f304095d7c4b90a58506d44a057486
+      created: 1765280812425
+      modified: 1774298822147
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812425
+    method: POST
+    authentication:
+      type: apikey
+      key: x-admin-key
+      value: "{{ _.xAdminKey }}"
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/tenant/channels"
+    name: Criar Canal
+    meta:
+      id: req_5bfa0df879824d568e914c96d5b002c9
+      created: 1765280812425
+      modified: 1774294450072
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812425
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "name": "Recepção",
+          "slug": "recepcao"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        disabled: false
+    authentication:
+      type: apikey
+      key: x-tenant-token
+      value: "{{ _.xTenantToken }}"
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/tenant/channels"
+    name: Listar Canais do Tenant
+    meta:
+      id: req_944b49ba17e04edc8b4686fe70abb6c9
+      created: 1765280812425
+      modified: 1774294411875
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812425
+    method: GET
+    authentication:
+      type: apikey
+      key: x-tenant-token
+      value: "{{ _.xTenantToken }}"
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/chamada"
+    name: Enviar Chamada (Versa)
+    meta:
+      id: req_13a0fa94de5340f5af1705e6c119310d
+      created: 1765280812426
+      modified: 1774298916821
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812426
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "source_system": "Versa Consorcio",
+          "current_call": {
+            "patient_name": "José Socrates",
+            "destination": "Sala de Triagem",
+        		"is_priority":true
+        		
+            
+          }
+          
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        disabled: false
+      - name: x-channel-id
+        value: recepcao
+        disabled: false
+    authentication:
+      type: apikey
+      key: x-auth-token
+      value: "{{ _.xAuthToken }}"
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/channels/recepcao_010/history"
+    name: Histórico de Chamadas
+    meta:
+      id: req_3a05bd45459e41d79b7ef6e5dc7d02c0
+      created: 1765280812426
+      modified: 1765390789486
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812426
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/tenant/channels/recepcao_010"
+    name: Editar Canal
+    meta:
+      id: req_6120a4907a5941f7ae5e6fa6946bcb8c
+      created: 1765280812426
+      modified: 1770923562016
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812426
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name":"Recepção",
+          "routingKeyMap": {"NovoSGA": "5"}
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        disabled: false
+    authentication:
+      type: apikey
+      key: x-tenant-token
+      value: 8663cb11-507e-47dc-adc4-d871274b60b5
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/tenant/channels/{{ _.slug }}"
+    name: Deletar Canal
+    meta:
+      id: req_b9fefdba5113482d8399c8f069d06a25
+      created: 1765280812426
+      modified: 1765280812426
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812426
+    method: DELETE
+    authentication:
+      type: apikey
+      key: x-tenant-token
+      value: "{{ _.xTenantToken }}"
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/admin/pairing/validate"
+    name: Validar codigo TV
+    meta:
+      id: req_4fe826f0600b41378e9a9e7c2e13d959
+      created: 1768340355289
+      modified: 1774371793177
+      isPrivate: false
+      description: ""
+      sortKey: -1764654218354.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{ "code": "407008", "channelSlug": "recepcao" }'
+    headers:
+      - name: Content-Type
+        value: application/json
+        disabled: false
+    authentication:
+      type: apikey
+      key: x-admin-key
+      value: "{{ _.xAdminKey }}"
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/chamada"
+    name: Enviar Chamada (Ingestão SGA)
+    meta:
+      id: req_0e3696f3f35b49c5b9fcb09cacbb2ffb
+      created: 1769707730301
+      modified: 1774299096329
+      isPrivate: false
+      description: ""
+      sortKey: -1765280812425.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id": 58,
+        	"senha": {
+        		"sigla": "A",
+        		"numero": 7,
+        		"format": "S001"
+        	},
+        	"servico": {
+        		"id": 12,
+        		"nome": "Atendimento"
+        	},
+        	"unidade": {
+        		"id": 2,
+        		"nome": "Minha unidade"
+        	},
+        	"observacao": null,
+        	"dataChegada": "2026-01-26T10:33:49",
+        	"dataChamada": "2026-01-26T10:38:31",
+        	"dataInicio": null,
+        	"dataFim": null,
+        	"dataAgendamento": null,
+        	"tempoEspera": "00:04:42",
+        	"prioridade": {
+        		"id": 4,
+        		"nome": "Prioridade",
+        		"descricao": "Atendimento prioritário",
+        		"peso": 0,
+        		"cor": "#FF0000",
+        		"ativo": true,
+        		"createdAt": "2025-11-19T15:35:36",
+        		"updatedAt": null,
+        		"deletedAt": null
+        	},
+        	"local": {
+        		"id": 2,
+        		"nome": "Sala de Triagem",
+        		"createdAt": "2025-11-19T15:35:36",
+        		"updatedAt": null
+        	},
+        	"cliente":{"nome":"Jhonatan Assumpção Zanette Silva"},
+        	"numeroLocal": 1,
+        	"status": "chamado",
+        	"resolucao": null,
+        	
+        	"triagem": {
+        		"id": 2,
+        		"login": "admin"
+        	},
+        	"usuario": {
+        		"id": 2,
+        		"login": "admin"
+        	},
+        	"codificados": [],
+        	"hash": "3a7010c13a388ba95b894de319397d125e9a7f44"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        disabled: false
+      - name: x-channel-id
+        value: recepcao
+        disabled: false
+    authentication:
+      type: apikey
+      key: x-auth-token
+      value: "{{ _.xAuthToken }}"
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/tts?text=paciente gabriel antonio diniz, dirigir-se ao
+      guichê 4&lang=PT-br"
+    name: TTS
+    meta:
+      id: req_c006a5c97c454aacbed64fe64e7a6b44
+      created: 1772467218492
+      modified: 1772481066925
+      isPrivate: false
+      description: ""
+      sortKey: -1764340921319.75
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+        disabled: false
+    authentication:
+      type: apikey
+      key: x-admin-key
+      value: "{{ _.xAdminKey }}"
+      disabled: true
+      addTo: header
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: ""
+    name: New Request
+    meta:
+      id: req_9e66844a17584490aab4c8ceec0f9655
+      created: 1772642950414
+      modified: 1772643057672
+      isPrivate: false
+      description: ""
+      sortKey: -1772642950414
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.1.0
+        description: ""
+        disabled: false
+      - name: Authorization
+        value: Basic dmVyc2Fzb2NpYWw6dmVyc2FAMTIzNA==
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_9bc0df41a254da118a1b8971884e13e7d5dda783
+    created: 1765280801220
+    modified: 1765280801220
+environments:
+  name: Base Environment
+  meta:
+    id: env_9bc0df41a254da118a1b8971884e13e7d5dda783
+    created: 1765280790225
+    modified: 1770754581101
+    isPrivate: false
+  subEnvironments:
+    - name: API env PROD
+      meta:
+        id: env_0bccda828a4c4b2996156f36d0880711
+        created: 1765280812423
+        modified: 1770812865257
+        isPrivate: false
+        sortKey: 1765280812423
+      data:
+        scheme: https
+        base_path: /api/v1
+        host: painel.versaatende.com.br
+        xAdminKey: xAdminKey!2024@Secure#
+        xTenantToken: f404338b-4472-4e49-acdb-416321b6befe
+        xAuthToken: 7d671f62-5e02-41dc-bc5b-3d18defd155a
+        base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+    - name: API env DEV
+      meta:
+        id: env_38a8a9045ad84f67a737d6b5719de06e
+        created: 1770812873252
+        modified: 1774298877102
+        isPrivate: false
+        sortKey: 1765280812473
+      data:
+        scheme: http
+        base_path: /api/v1
+        host: localhost:3000
+        xAdminKey: xAdminKey!2024@Secure#
+        xTenantToken: bedc4a41-fa0c-4a6d-a711-2a4e16f65d1e
+        xAuthToken: 43717e01-a196-4e84-bc5c-aa22bb5f236f
+        base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+    - name: API env PROD (cidesleste)
+      meta:
+        id: env_3fae77350fd24541b24a41b4e2d03093
+        created: 1774294344016
+        modified: 1774294473286
+        isPrivate: false
+        sortKey: 1765280812448
+      data:
+        scheme: https
+        base_path: /api/v1
+        host: painel.versaatende.com.br
+        xAdminKey: xAdminKey!2024@Secure#
+        xTenantToken: d718a326-a222-4200-911f-cb69fd2d6640
+        xAuthToken: ebd2a7da-d8cb-4910-be39-0062aa847d0c
+        base_url: "{{ _.scheme }}://{{ _.host }}{{ _.base_path }}"
+spec:
+  contents:
+    openapi: 3.0.0
+    info:
+      title: Painel de Chamadas API
+      description: API para gestão de Digital Signage Hospitalar (Multi-tenant)
+      version: 1.1.0
+    servers:
+      - url: http://localhost:3000/api/v1
+        description: Servidor Local
+    components:
+      securitySchemes:
+        AdminApiKey:
+          type: apiKey
+          in: header
+          name: x-admin-key
+        TenantToken:
+          type: apiKey
+          in: header
+          name: x-tenant-token
+        ChannelAuth:
+          type: apiKey
+          in: header
+          name: x-auth-token
+    paths:
+      /admin/tenants:
+        get:
+          summary: Listar Tenants
+          responses:
+            "200":
+              description: Lista de tenants
+        post:
+          summary: Criar Tenant
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    slug:
+                      type: string
+                    webhookUrl:
+                      type: string
+          responses:
+            "201":
+              description: Tenant criado com sucesso
+      /admin/tenants/{id}/rotate-key:
+        post:
+          summary: Rotacionar Chave do Tenant
+          parameters:
+            - in: path
+              name: id
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: Nova chave gerada
+      /tenant/channels:
+        get:
+          summary: Listar Canais do Tenant
+          responses:
+            "200":
+              description: Lista de canais
+        post:
+          summary: Criar Canal
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    slug:
+                      type: string
+          responses:
+            "201":
+              description: Canal criado
+      /tenant/channels/{slug}:
+        patch:
+          summary: Editar Canal
+          parameters:
+            - in: path
+              name: slug
+              required: true
+              schema:
+                type: string
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+          responses:
+            "200":
+              description: Canal atualizado
+        delete:
+          summary: Deletar Canal
+          parameters:
+            - in: path
+              name: slug
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: Canal deletado
+      /chamada:
+        post:
+          summary: Enviar Chamada (Ingestão)
+          parameters:
+            - in: header
+              name: x-channel-id
+              required: true
+              schema:
+                type: string
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  description: Payload Versa ou NovoSGA
+          responses:
+            "200":
+              description: Chamada processada
+            "403":
+              description: Tenant inativo (Kill Switch)
+      /channels/{slug}/history:
+        get:
+          summary: Histórico de Chamadas
+          parameters:
+            - in: path
+              name: slug
+              required: true
+              schema:
+                type: string
+          responses:
+            "200":
+              description: Histórico recente
+  meta:
+    id: spc_956b4bc522354dfb8e36f022c787771a
+    created: 1765280790223
+    modified: 1765280790224
