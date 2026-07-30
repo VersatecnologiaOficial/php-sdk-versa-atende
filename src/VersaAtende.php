@@ -3,6 +3,7 @@
 namespace Versa\VersaAtende;
 
 use Versa\VersaAtende\Services\ChannelService;
+use Versa\VersaAtende\Services\PairingService;
 use Versa\VersaAtende\Services\TenantService;
 
 class VersaAtende
@@ -26,5 +27,13 @@ class VersaAtende
     public function channels(): ChannelService
     {
         return new ChannelService($this->baseUrl);
+    }
+
+    /**
+     * Pareamento de TV com Canais.
+     */
+    public function pairing(): PairingService
+    {
+        return new PairingService($this->baseUrl, $this->adminKey);
     }
 }
