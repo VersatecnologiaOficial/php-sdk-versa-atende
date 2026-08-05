@@ -2,6 +2,7 @@
 
 namespace Versa\VersaAtende;
 
+use Versa\VersaAtende\Services\CallService;
 use Versa\VersaAtende\Services\ChannelService;
 use Versa\VersaAtende\Services\PairingService;
 use Versa\VersaAtende\Services\TenantService;
@@ -35,5 +36,13 @@ class VersaAtende
     public function pairing(): PairingService
     {
         return new PairingService($this->baseUrl, $this->adminKey);
+    }
+
+    /**
+     * Envio de Chamadas para o Painel.
+     */
+    public function calls(): CallService
+    {
+        return new CallService($this->baseUrl);
     }
 }
