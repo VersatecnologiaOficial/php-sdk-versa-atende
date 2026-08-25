@@ -29,7 +29,10 @@ class CallService
             'x-channel-id' => $channelSlug,
             'Content-Type' => 'application/json',
             'Accept'       => 'application/json',
-        ])->post("{$this->baseUrl}/chamada", $callData);
+        ])
+        ->timeout(10)
+        ->connectTimeout(5)
+        ->post("{$this->baseUrl}/chamada", $callData);
 
         if ($response->failed()) {
             throw new VersaAtendeException(
