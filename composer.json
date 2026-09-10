@@ -1,5 +1,5 @@
 {
-  "name": "versa/versa-atende-sdk",
+  "name": "versa-saude/versa-atende-sdk",
   "description": "SDK para integração com a API Versa Atende",
   "type": "library",
   "license": "MIT",
