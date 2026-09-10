@@ -2,6 +2,12 @@
   "name": "versa/versa-atende-sdk",
   "description": "SDK para integração com a API Versa Atende",
   "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Versa Saúde"
+    }
+  ],
   "require": {
     "php": "^8.0|^8.1",
     "illuminate/support": "^9.0|^10.0|^11.0",
