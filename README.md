@@ -5,7 +5,7 @@ SDK para integração rápida com a API do Versa Atende utilizando relações po
 ## Instalação
 
 Adicione o repositório local no seu composer.json e rode:
-`composer require versa/versa-atende-sdk`
+`composer require versa-saude/versa-atende-sdk`
 
 ## Configuração
 1. Publique as configurações (Opcional):
