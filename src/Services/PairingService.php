@@ -15,19 +15,21 @@ class PairingService
     /**
      * Valida o código de pareamento e vincula a TV ao canal.
      * Endpoint: POST /admin/pairing/validate
-     * Auth: x-admin-key
+     * Auth: x-admin-key + x-tenant-token
      *
      * @param string $code Código de 6 dígitos exibido na TV
      * @param string $channelSlug Slug do canal a ser pareado
+     * @param string $tenantToken Token do tenant
      * @return array Resposta da API
      * @throws VersaAtendeException
      */
-    public function pairTv(string $code, string $channelSlug): array
+    public function pairTv(string $code, string $channelSlug, string $tenantToken): array
     {
         $response = Http::withHeaders([
-            'x-admin-key'  => $this->adminKey,
-            'Content-Type' => 'application/json',
-            'Accept'       => 'application/json',
+            'x-admin-key'    => $this->adminKey,
+            'x-tenant-token' => $tenantToken,
+            'Content-Type'   => 'application/json',
+            'Accept'         => 'application/json',
         ])->post("{$this->baseUrl}/admin/pairing/validate", [
             'code'        => $code,
             'channelSlug' => $channelSlug,
