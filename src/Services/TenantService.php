@@ -17,7 +17,7 @@ class TenantService
     public function create(string $name, string $slug): array
     {
         $response = Http::withHeaders([
-            'x-admin-key'  => $this->adminKey,
+            'Authorization' => 'Bearer ' . $this->adminKey,
             'Content-Type' => 'application/json',
             'Accept'       => 'application/json',
         ])->post("{$this->baseUrl}/admin/tenants", [
